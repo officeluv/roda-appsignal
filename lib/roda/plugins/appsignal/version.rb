@@ -3,7 +3,7 @@
 class Roda
   module RodaPlugins
     module Appsignal
-      VERSION = '1.1.0'
+      VERSION = '1.1.1'
     end
   end
 end
