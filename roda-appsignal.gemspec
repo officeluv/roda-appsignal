@@ -1,11 +1,11 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "roda/appsignal/version"
+require "roda/plugins/appsignal"
 
 Gem::Specification.new do |spec|
   spec.name          = "roda-appsignal"
-  spec.version       = Roda::Appsignal::VERSION
+  spec.version       = Roda::RodaPlugins::Appsignal::VERSION
   spec.authors       = ["andjosh"]
   spec.email         = ["email@andjosh.com"]
 

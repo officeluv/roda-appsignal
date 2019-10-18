@@ -8,6 +8,8 @@ class Roda
     #
     #   plugin :appsignal
     module Appsignal
+      VERSION = '0.1.0'
+
       def self.configure(app)
         app.use ::Appsignal::Rack::GenericInstrumentation
       end
