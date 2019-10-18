@@ -1,4 +1,4 @@
 require 'roda'
 require 'appsignal'
-require 'roda/plugins/rest_api'
+require 'roda/plugins/appsignal'
 require 'roda/appsignal/version'
