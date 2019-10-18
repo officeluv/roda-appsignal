@@ -7,7 +7,7 @@ class Roda
     # Example:
     #
     #   plugin :appsignal
-    #   plugin :appsignal, proc { |action_name| action_name.gsub!(/\d+\/, '') }
+    #   plugin :appsignal, proc { |action_name| action_name.gsub(/\d+\/, '') }
     #
     module Appsignal
       def self.configure(app, sanitize = proc { |name| name })
@@ -20,7 +20,7 @@ class Roda
 
         def _roda_before_10__appsignal
           ::Appsignal.set_action(
-            opts[:appsignal_sanitize].call(request.inspect.gsub!(/#|<|>/, ''))
+            opts[:appsignal_sanitize].call(request.inspect.gsub(/#|<|>/, ''))
           )
         end
       end
