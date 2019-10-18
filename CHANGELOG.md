@@ -14,6 +14,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.1.1] - 2019-10-18
+### Fixed
+- Prevent modification of frozen strings.
+
 ## [1.1.0] - 2019-10-18
 ### Added
 - Allow for sanitization of action name.
