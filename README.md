@@ -44,6 +44,24 @@ class App < Roda
 end
 ```
 
+You can also sanitize the action name via a proc argument:
+
+```ruby
+class App < Roda
+
+  plugin :appsignal, proc { |name| name.gsub!(/\d+/, ':id') }
+
+  route do |r|
+    r.is 'foo' do
+      r.is Integer do
+        # will be named/instrumented as 'App::RodaRequest GET /foo/:id'
+        'hello world'
+      end
+    end
+  end
+end
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
