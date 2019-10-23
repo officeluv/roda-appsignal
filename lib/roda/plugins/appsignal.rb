@@ -9,12 +9,12 @@ class Roda
     #
     #   plugin :appsignal
     #   plugin :appsignal, sanitize: proc { |action_name| action_name.gsub(/\d+\/, '') }
-    #   plugin :appsignal, namespeace: 'custom_namespace'
+    #   plugin :appsignal, namespace: 'custom_namespace'
     #
     module Appsignal
-      def self.configure(app, namespeace: 'web', sanitize: proc { |name| name })
+      def self.configure(app, namespace: 'web', sanitize: proc { |name| name })
         app.opts[:appsignal_sanitize] = sanitize
-        app.opts[:appsignal_namespace] = namespeace
+        app.opts[:appsignal_namespace] = namespace
         app.use ::Appsignal::Rack::GenericInstrumentation
       end
 
