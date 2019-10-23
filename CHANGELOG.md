@@ -14,6 +14,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.0.0] - 2019-10-23
+### Added
+- Support custom namespaces
+### Changed
+- Switch to named/hash params
+
 ## [1.1.1] - 2019-10-18
 ### Fixed
 - Prevent modification of frozen strings.

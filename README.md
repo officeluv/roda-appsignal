@@ -49,12 +49,30 @@ You can also sanitize the action name via a proc argument:
 ```ruby
 class App < Roda
 
-  plugin :appsignal, proc { |name| name.gsub!(/\d+/, ':id') }
+  plugin :appsignal, sanitize: proc { |name| name.gsub!(/\d+/, ':id') }
 
   route do |r|
     r.is 'foo' do
       r.is Integer do
         # will be named/instrumented as 'App::RodaRequest GET /foo/:id'
+        'hello world'
+      end
+    end
+  end
+end
+```
+
+You can also customize the transaction namespace:
+
+```ruby
+class App < Roda
+
+  plugin :appsignal, namespace: 'custom_namespace'
+
+  route do |r|
+    r.is 'foo' do
+      r.is Integer do
+        # will be named/instrumented under custom_namespace
         'hello world'
       end
     end
