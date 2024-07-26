@@ -15,7 +15,7 @@ class Roda
       def self.configure(app, namespace: 'web', sanitize: proc { |name| name })
         app.opts[:appsignal_sanitize] = sanitize
         app.opts[:appsignal_namespace] = namespace
-        app.use ::Appsignal::Rack::GenericInstrumentation
+        app.use ::Appsignal::Rack::InstrumentationMiddleware
       end
 
       # Instance method overrides
